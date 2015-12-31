@@ -4,12 +4,11 @@ class Robot
   end
 
   def job
-    puts "Started."
+    puts 'Started.'
     yield(@name)
-    puts "Finished."
+    puts 'Finished.'
   end
 end
 
-robot = Robot.new("Alice")
+robot = Robot.new('Alice')
 robot.job { |name| puts "Hi, my name is #{name}!" }
-

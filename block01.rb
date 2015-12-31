@@ -8,3 +8,7 @@ end
 
 robot = Robot.new
 robot.job { puts "Hello Workd!" }
+
+robot.job do
+  puts "test"
+end

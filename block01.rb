@@ -1,14 +1,14 @@
 class Robot
   def job
-    puts "Started."
+    puts 'Started.'
     yield
-    puts "Finished."
+    puts 'Finished.'
   end
 end
 
 robot = Robot.new
-robot.job { puts "Hello Workd!" }
+robot.job { puts 'Hello Workd!' }
 
 robot.job do
-  puts "test"
+  puts 'test'
 end

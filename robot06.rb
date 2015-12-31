@@ -2,7 +2,7 @@ class Robot
   attr_accessor :name
 
   def initialize
-    @name = "ROBOT"
+    @name = 'ROBOT'
   end
 end
 

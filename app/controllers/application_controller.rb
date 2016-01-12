@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
       'customer'
     end
   end
+  def rescue404(e)
+    @exception = e
+    render template: 'errors/not_found', status: 404
+  end
+
+  def rescue500(e)
+    @exception = e
+    render 'errors/internal_server_error', status: 500
+  end
 end

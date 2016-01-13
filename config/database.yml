@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: baukis-on-rails-4-2_production
-  username: baukis-on-rails-4-2
-  password: <%= ENV['BAUKIS-ON-RAILS-4-2_DATABASE_PASSWORD'] %>
+  # username: baukis-on-rails-4-2
+  # password: <%= ENV['BAUKIS-ON-RAILS-4-2_DATABASE_PASSWORD'] %>

@@ -3,15 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   rescue_from Exception, with: :rescue500
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+
   rescue_from ActionController::RoutingError, with: :rescue404
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+
 
   layout :set_layout
 
-  def rescue404(e)
-    @exception = e
-    render template: 'errors/not_found', status: 404
+  def rescue404(exception = nil)
+    @exception = exception
+    logger.info "Rendering 404 with exception: #{@exception.message}" if @exception
+
+    render template: 'errors/error_404', status: 404, layout: 'customer', content_type: 'text/html'
   end
+
 
   private
   def set_layout
@@ -22,8 +27,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def rescue500(e)
-    @exception = e
-    render 'errors/internal_server_error', status: 500
+  def rescue500(exception = nil)
+    @exception = exception
+    logger.info "Rendering 500 with exception: #{@exception.message}" if @exception
+    render template: 'errors/error_500', status: 500, layout: 'customer', content_type: 'text/html'
   end
 end

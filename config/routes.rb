@@ -65,5 +65,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  match "*path" => "application#rescue404", via: :all
+  match "*anything" => "errors#routing_error", via: :all
 end

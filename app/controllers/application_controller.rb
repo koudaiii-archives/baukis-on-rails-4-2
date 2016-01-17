@@ -2,11 +2,16 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  class Forbidden < ActionController::ActionControllerError; end
+  class IpAddressRejected < ActionController::ActionControllerError; end
+
   rescue_from Exception, with: :rescue500
 
+  rescue_from Forbidden, with: :rescue403
+  rescue_from IpAddressRejected, with: :rescue403
   rescue_from ActionController::RoutingError, with: :rescue404
   rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-
 
   layout :set_layout
 

@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def rescue403(exception = nil)
+    @exception = exception
+    logger.info "Rendering 403 with exception: #{@exception.message}" if @exception
+    render template: 'errors/error_403', status: 403, layout: 'customer', content_type: 'text/html'
+  end
+
   def rescue500(exception = nil)
     @exception = exception
     logger.info "Rendering 500 with exception: #{@exception.message}" if @exception

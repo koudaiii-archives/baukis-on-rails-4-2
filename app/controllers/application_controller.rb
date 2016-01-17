@@ -15,14 +15,6 @@ class ApplicationController < ActionController::Base
 
   layout :set_layout
 
-  def rescue404(exception = nil)
-    @exception = exception
-    logger.info "Rendering 404 with exception: #{@exception.message}" if @exception
-
-    render template: 'errors/error_404', status: 404, layout: 'customer', content_type: 'text/html'
-  end
-
-
   private
   def set_layout
     if params[:controller].match(%r{\A(staff|admin|customer)/})
@@ -36,6 +28,12 @@ class ApplicationController < ActionController::Base
     @exception = exception
     logger.info "Rendering 403 with exception: #{@exception.message}" if @exception
     render template: 'errors/error_403', status: 403, layout: 'customer', content_type: 'text/html'
+  end
+
+  def rescue404(exception = nil)
+    @exception = exception
+    logger.info "Rendering 404 with exception: #{@exception.message}" if @exception
+    render template: 'errors/error_404', status: 404, layout: 'customer', content_type: 'text/html'
   end
 
   def rescue500(exception = nil)

@@ -8,5 +8,11 @@ RSpec.describe StaffMember, type: :model do
       expect(member.hashed_password).to be_kind_of(String)
       expect(member.hashed_password.size).to eq(60)
     end
+
+    example 'nil を与えると、 hashed_password は nil になる' do
+      member = StaffMember.new(hashed_password: 'x')
+      member.password = nil
+      expect(member.hashed_password).to be_nil
+    end
   end
 end

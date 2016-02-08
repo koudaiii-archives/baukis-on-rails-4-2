@@ -1,7 +1,6 @@
 %header
   %span.logo-mark "BAUKIS"
-  :ruby
-    if current_administrator
-      link_to 'ログアウト', :administrator_session, method: :delete
-    else
-      link_to 'ログイン', :administrator_login
+  - if current_administrator
+    = link_to 'ログアウト', :administrator_session, method: :delete
+  - else
+    = link_to 'ログイン', :administrator_login

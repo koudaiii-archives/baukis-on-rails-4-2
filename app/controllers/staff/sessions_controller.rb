@@ -1,9 +1,9 @@
 class Staff::SessionsController < Staff::Base
   def new
-    if current_steaff_member
+    if current_staff_member
       redirect_to :staff_root
     else
-      @form = Staeff::LoginForm.new
+      @form = Staff::LoginForm.new
       render action: 'new'
     end
   end

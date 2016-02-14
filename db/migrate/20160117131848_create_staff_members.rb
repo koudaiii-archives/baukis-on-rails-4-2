@@ -8,8 +8,8 @@ class CreateStaffMembers < ActiveRecord::Migration
       t.string :family_name_kana, null: false
       t.string :given_name_kana, null: false
       t.string :hashed_password
-      t.string :start_date, null: false
-      t.string :end_date
+      t.date :start_date, null: false
+      t.date :end_date
       t.boolean :suspended, null: false, default: false
       t.timestamps null: false
     end

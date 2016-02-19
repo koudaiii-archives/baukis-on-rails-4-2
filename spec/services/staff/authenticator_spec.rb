@@ -22,5 +22,9 @@ describe Staff::Authenticator do
       expect(Staff::Authenticator.new(m).authenticate('pw')).to be_falsey
     end
 
+    example '' do
+    end
+    example '' do
+    end
   end
 end

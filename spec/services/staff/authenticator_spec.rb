@@ -22,9 +22,14 @@ describe Staff::Authenticator do
       expect(Staff::Authenticator.new(m).authenticate('pw')).to be_falsey
     end
 
-    example '' do
+    example '開始前ならfalseを返す' do
+      m = build(:staff_member, start_date: Date.tomorrow)
+      expect(Staff::Authenticator.new(m).authenticate('pw')).to be_falsey
     end
-    example '' do
+
+    example '終了後ならfalseを返す' do
+      m = build(:staff_member, end_date: Date.yesterday)
+      expect(Staff::Authenticator.new(m).authenticate('pw')).to be_falsey
     end
   end
 end

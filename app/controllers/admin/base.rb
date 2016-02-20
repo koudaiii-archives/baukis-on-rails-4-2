@@ -8,4 +8,4 @@ class Admin::Base < ApplicationController
   end
 
   helper_method :current_administrator
-end  
+end

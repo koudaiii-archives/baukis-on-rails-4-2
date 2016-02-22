@@ -17,6 +17,9 @@ class Staff::SessionsController < Staff::Base
       session[:staff_member_id] = staff_member.id
       flash.notice = 'ログインしました。'
       redirect_to :staff_root
+    elsif suspended?
+      flash.now.alert = 'アカウアントが停止されています'
+      render action: 'new'
     else
       flash.now.alert = 'メールアドレスまたはパスワードが正しくありません。'
       render action: 'new'

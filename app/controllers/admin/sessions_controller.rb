@@ -19,9 +19,9 @@ class Admin::SessionsController < Admin::Base
         flash.now.alert = 'アカウントが停止されています'
         render action: 'new'
       else
-        session[:staff_member_id] = administrator.id
+        session[:administrator_id] = administrator.id
         flash.notice = 'ログインしました。'
-        redirect_to :staff_root
+        redirect_to :admin_root
       end
     else
       flash.now.alert = 'メールアドレスまたはパスワードが正しくありません。'

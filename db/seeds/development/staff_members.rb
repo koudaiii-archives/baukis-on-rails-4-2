@@ -1,3 +1,4 @@
+StaffMember.delete_all
 StaffMember.create!(
   email: 'taro@example.com',
   family_name: '山田',

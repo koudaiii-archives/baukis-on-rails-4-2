@@ -14,7 +14,7 @@ class Admin::SessionsController < Admin::Base
       administrator = Administrator.find_by(email_for_index: @form.email.downcase)
     end
     authenticator = Admin::Authenticator.new(administrator)
-    if !administrator.nil? && authenticator.authenticate(@form.password)
+    if !administrator.nil? && authenticator.authenticate
       if authenticator.account_lock?
         flash.now.alert = 'アカウントが停止されています'
         render action: 'new'

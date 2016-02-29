@@ -4,10 +4,10 @@ class Admin::Authenticator
   end
 
   def authenticate
-    @amdin && @admin.email
+    @admin && @admin.email
   end
 
   def account_lock?
-    @amdin.suspended?
+    @admin.suspended?
   end
 end

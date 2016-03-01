@@ -28,4 +28,9 @@ class Admin::SessionsController < Admin::Base
       render action: 'new'
     end
   end
+  def destroy
+    session.delete(:addministator_id)
+    flash.notice = 'ログアウトしました。'
+    redirect_to :admin_root
+  end
 end

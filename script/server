@@ -1,0 +1,4 @@
+#!/bin/bash -x
+sleep 10
+
+bundle exec rails server -b 0.0.0.0 -p 8080 -e production

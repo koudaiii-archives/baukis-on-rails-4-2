@@ -79,5 +79,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'errors#routing_error'
   match "*anything" => "errors#routing_error", via: :all
 end

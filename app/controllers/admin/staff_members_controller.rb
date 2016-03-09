@@ -1,2 +1,2 @@
-class Admin::StaffMembersController < ApplicationController
+class Admin::StaffMembersController < Admin::Base
 end

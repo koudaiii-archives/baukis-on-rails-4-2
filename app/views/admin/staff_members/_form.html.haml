@@ -17,3 +17,9 @@
 %div
   = f.label :start_date, '開始日', class: 'required'
   = f.text_field :start_date, required: true
+%div
+  = f.label :end_date, '終了日'
+  = f.text_field :end_date
+%div.check-boes
+  = f.check_box :suspended
+  = f.label :suspended, 'アカウント禁止'

@@ -55,7 +55,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 # Use sidekiq
-gem 'sidekiq'
+gem 'sidekiq', '~> 4.2'
 
 # ER
 gem 'rails-erd'
